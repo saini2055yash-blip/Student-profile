@@ -20,11 +20,12 @@ app.use((req, res, next) => {
 // ===============================
 
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "myapp",
-    password: "saini2111khushi",
-    port: 5432
+    // user: "postgres",
+    // host: "localhost",
+    // database: "myapp",
+    // password: "saini2111khushi",
+    // port: 5432
+    connectionString: process.env.DATABASE_URL
 });
 
 

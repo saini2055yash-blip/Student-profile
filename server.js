@@ -157,6 +157,25 @@ app.put("/users/:id", async (req, res) => {
     }
 });
 
+// ===============================
+// CREATE USERS TABLE
+// ===============================
+
+pool.query(`
+    CREATE TABLE IF NOT EXISTS users (
+        "ID" SERIAL PRIMARY KEY,
+        "Name" VARCHAR(100),
+        "Age" INTEGER,
+        "Mobile" VARCHAR(20),
+        "Email" VARCHAR(255)
+    )
+`)
+.then(() => {
+    console.log("Users table is ready");
+})
+.catch((error) => {
+    console.error("TABLE CREATION ERROR:", error);
+});
 
 // ===============================
 // START SERVER
